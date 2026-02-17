@@ -126,6 +126,169 @@
             color: #666;
             font-size: 0.9em;
         }
+
+        /* Quiz Styles */
+        .quiz-section {
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 3px solid #667eea;
+        }
+
+        .quiz-intro {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #666;
+            font-size: 1.1em;
+        }
+
+        .quiz-container {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .quiz-header {
+            color: white;
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .quiz-description {
+            color: rgba(255, 255, 255, 0.9);
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 1em;
+        }
+
+        .question {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        .question-text {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .options {
+            list-style: none;
+        }
+
+        .option {
+            background: #f5f7fa;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .option:hover {
+            background: #e8ecf1;
+            transform: translateX(5px);
+        }
+
+        .option.selected {
+            border-color: #667eea;
+            background: #e8ecf1;
+        }
+
+        .option.correct {
+            border-color: #4caf50;
+            background: #c8e6c9;
+        }
+
+        .option.incorrect {
+            border-color: #f44336;
+            background: #ffcdd2;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .submit-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .result {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 1.2em;
+            display: none;
+        }
+
+        .result.show {
+            display: block;
+        }
+
+        .score {
+            font-size: 2em;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .feedback {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 0.95em;
+        }
+
+        .feedback.correct {
+            background: #c8e6c9;
+            color: #2e7d32;
+        }
+
+        .feedback.incorrect {
+            background: #ffcdd2;
+            color: #c62828;
+        }
+
+        .reset-btn {
+            background: #764ba2;
+            color: white;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .reset-btn:hover {
+            background: #5d3a82;
+        }
     </style>
 </head>
 <body>
@@ -293,10 +456,349 @@
             </ul>
         </div>
 
+        <!-- Quiz Section -->
+        <div class="quiz-section">
+            <h2 class="category-title">🎯 Interaktive Tests</h2>
+            <p class="quiz-intro">Teste dein Wissen mit diesen Multiple-Choice-Tests!</p>
+
+            <!-- Quiz 1: Text Types -->
+            <div class="quiz-container" id="quiz1">
+                <h3 class="quiz-header">📝 Quiz 1: Text Types & Formats</h3>
+                <p class="quiz-description">Teste dein Wissen über verschiedene Textarten</p>
+
+                <div class="question">
+                    <p class="question-text">1. What is the main purpose of a diary entry?</p>
+                    <ul class="options">
+                        <li class="option" data-quiz="1" data-question="1" data-answer="a">A) To express personal thoughts and feelings</li>
+                        <li class="option" data-quiz="1" data-question="1" data-answer="b">B) To persuade readers</li>
+                        <li class="option" data-quiz="1" data-question="1" data-answer="c">C) To inform the public</li>
+                        <li class="option" data-quiz="1" data-question="1" data-answer="d">D) To give instructions</li>
+                    </ul>
+                </div>
+
+                <div class="question">
+                    <p class="question-text">2. Which greeting is most appropriate for a formal email?</p>
+                    <ul class="options">
+                        <li class="option" data-quiz="1" data-question="2" data-answer="a">A) Hey!</li>
+                        <li class="option" data-quiz="1" data-question="2" data-answer="b">B) Dear Sir or Madam,</li>
+                        <li class="option" data-quiz="1" data-question="2" data-answer="c">C) Hi there,</li>
+                        <li class="option" data-quiz="1" data-question="2" data-answer="d">D) What's up?</li>
+                    </ul>
+                </div>
+
+                <div class="question">
+                    <p class="question-text">3. A blog entry is typically written in which style?</p>
+                    <ul class="options">
+                        <li class="option" data-quiz="1" data-question="3" data-answer="a">A) Very formal and academic</li>
+                        <li class="option" data-quiz="1" data-question="3" data-answer="b">B) Conversational and engaging</li>
+                        <li class="option" data-quiz="1" data-question="3" data-answer="c">C) Strictly objective and impersonal</li>
+                        <li class="option" data-quiz="1" data-question="3" data-answer="d">D) Using only technical language</li>
+                    </ul>
+                </div>
+
+                <div class="question">
+                    <p class="question-text">4. What should a speech always include?</p>
+                    <ul class="options">
+                        <li class="option" data-quiz="1" data-question="4" data-answer="a">A) A clear introduction, main body, and conclusion</li>
+                        <li class="option" data-quiz="1" data-question="4" data-answer="b">B) Only facts and statistics</li>
+                        <li class="option" data-quiz="1" data-question="4" data-answer="c">C) Personal diary entries</li>
+                        <li class="option" data-quiz="1" data-question="4" data-answer="d">D) Informal abbreviations</li>
+                    </ul>
+                </div>
+
+                <div class="question">
+                    <p class="question-text">5. Which ending is appropriate for a story?</p>
+                    <ul class="options">
+                        <li class="option" data-quiz="1" data-question="5" data-answer="a">A) Yours sincerely,</li>
+                        <li class="option" data-quiz="1" data-question="5" data-answer="b">B) Best regards,</li>
+                        <li class="option" data-quiz="1" data-question="5" data-answer="c">C) A resolution that ties up the plot</li>
+                        <li class="option" data-quiz="1" data-question="5" data-answer="d">D) To be continued...</li>
+                    </ul>
+                </div>
+
+                <button class="submit-btn" onclick="checkQuiz(1, ['a','b','b','a','c'])">Antworten überprüfen</button>
+                <div class="result" id="result1"></div>
+            </div>
+
+            <!-- Quiz 2: Discussion & Comment -->
+            <div class="quiz-container" id="quiz2">
+                <h3 class="quiz-header">💬 Quiz 2: Discussion & Comment Writing</h3>
+                <p class="quiz-description">Wie gut kennst du dich mit Diskussionen und Kommentaren aus?</p>
+
+                <div class="question">
+                    <p class="question-text">1. What is essential in a written discussion?</p>
+                    <ul class="options">
+                        <li class="option" data-quiz="2" data-question="1" data-answer="a">A) Presenting both sides of an argument</li>
+                        <li class="option" data-quiz="2" data-question="1" data-answer="b">B) Only stating your opinion</li>
+                        <li class="option" data-quiz="2" data-question="1" data-answer="c">C) Using emotional language only</li>
+                        <li class="option" data-quiz="2" data-question="1" data-answer="d">D) Avoiding any personal perspective</li>
+                    </ul>
+                </div>
+
+                <div class="question">
+                    <p class="question-text">2. Which phrase introduces a contrasting argument?</p>
+                    <ul class="options">
+                        <li class="option" data-quiz="2" data-question="2" data-answer="a">A) Furthermore,</li>
+                        <li class="option" data-quiz="2" data-question="2" data-answer="b">B) In addition,</li>
+                        <li class="option" data-quiz="2" data-question="2" data-answer="c">C) However,</li>
+                        <li class="option" data-quiz="2" data-question="2" data-answer="d">D) Moreover,</li>
+                    </ul>
+                </div>
+
+                <div class="question">
+                    <p class="question-text">3. A comment should...</p>
+                    <ul class="options">
+                        <li class="option" data-quiz="2" data-question="3" data-answer="a">A) Include your personal opinion with supporting reasons</li>
+                        <li class="option" data-quiz="2" data-question="3" data-answer="b">B) Only list facts without opinion</li>
+                        <li class="option" data-quiz="2" data-question="3" data-answer="c">C) Be written in first person only</li>
+                        <li class="option" data-quiz="2" data-question="3" data-answer="d">D) Avoid giving examples</li>
+                    </ul>
+                </div>
+
+                <div class="question">
+                    <p class="question-text">4. Which is the best way to conclude a discussion?</p>
+                    <ul class="options">
+                        <li class="option" data-quiz="2" data-question="4" data-answer="a">A) Summarize main points and state your position</li>
+                        <li class="option" data-quiz="2" data-question="4" data-answer="b">B) Introduce new arguments</li>
+                        <li class="option" data-quiz="2" data-question="4" data-answer="c">C) Leave the question unanswered</li>
+                        <li class="option" data-quiz="2" data-question="4" data-answer="d">D) Repeat the introduction</li>
+                    </ul>
+                </div>
+
+                <div class="question">
+                    <p class="question-text">5. Linking words like "on the one hand" and "on the other hand" are used to...</p>
+                    <ul class="options">
+                        <li class="option" data-quiz="2" data-question="5" data-answer="a">A) Show contrast between different viewpoints</li>
+                        <li class="option" data-quiz="2" data-question="5" data-answer="b">B) Add similar ideas</li>
+                        <li class="option" data-quiz="2" data-question="5" data-answer="c">C) Give examples</li>
+                        <li class="option" data-quiz="2" data-question="5" data-answer="d">D) Conclude an argument</li>
+                    </ul>
+                </div>
+
+                <button class="submit-btn" onclick="checkQuiz(2, ['a','c','a','a','a'])">Antworten überprüfen</button>
+                <div class="result" id="result2"></div>
+            </div>
+
+            <!-- Quiz 3: Common Mistakes -->
+            <div class="quiz-container" id="quiz3">
+                <h3 class="quiz-header">⚠️ Quiz 3: Typical Mistakes</h3>
+                <p class="quiz-description">Vermeide diese typischen Fehler!</p>
+
+                <div class="question">
+                    <p class="question-text">1. Which sentence is correct?</p>
+                    <ul class="options">
+                        <li class="option" data-quiz="3" data-question="1" data-answer="a">A) I am going to the cinema yesterday.</li>
+                        <li class="option" data-quiz="3" data-question="1" data-answer="b">B) I went to the cinema yesterday.</li>
+                        <li class="option" data-quiz="3" data-question="1" data-answer="c">C) I go to the cinema yesterday.</li>
+                        <li class="option" data-quiz="3" data-question="1" data-answer="d">D) I goes to the cinema yesterday.</li>
+                    </ul>
+                </div>
+
+                <div class="question">
+                    <p class="question-text">2. Choose the correct form:</p>
+                    <ul class="options">
+                        <li class="option" data-quiz="3" data-question="2" data-answer="a">A) He don't like pizza.</li>
+                        <li class="option" data-quiz="3" data-question="2" data-answer="b">B) He doesn't likes pizza.</li>
+                        <li class="option" data-quiz="3" data-question="2" data-answer="c">C) He doesn't like pizza.</li>
+                        <li class="option" data-quiz="3" data-question="2" data-answer="d">D) He not like pizza.</li>
+                    </ul>
+                </div>
+
+                <div class="question">
+                    <p class="question-text">3. Which is the correct comparative form?</p>
+                    <ul class="options">
+                        <li class="option" data-quiz="3" data-question="3" data-answer="a">A) more better</li>
+                        <li class="option" data-quiz="3" data-question="3" data-answer="b">B) better</li>
+                        <li class="option" data-quiz="3" data-question="3" data-answer="c">C) more good</li>
+                        <li class="option" data-quiz="3" data-question="3" data-answer="d">D) gooder</li>
+                    </ul>
+                </div>
+
+                <div class="question">
+                    <p class="question-text">4. Identify the correct sentence:</p>
+                    <ul class="options">
+                        <li class="option" data-quiz="3" data-question="4" data-answer="a">A) There is many people in the room.</li>
+                        <li class="option" data-quiz="3" data-question="4" data-answer="b">B) There are many people in the room.</li>
+                        <li class="option" data-quiz="3" data-question="4" data-answer="c">C) There am many people in the room.</li>
+                        <li class="option" data-quiz="3" data-question="4" data-answer="d">D) There be many people in the room.</li>
+                    </ul>
+                </div>
+
+                <div class="question">
+                    <p class="question-text">5. Which sentence uses the present perfect correctly?</p>
+                    <ul class="options">
+                        <li class="option" data-quiz="3" data-question="5" data-answer="a">A) I have saw that movie.</li>
+                        <li class="option" data-quiz="3" data-question="5" data-answer="b">B) I have seen that movie.</li>
+                        <li class="option" data-quiz="3" data-question="5" data-answer="c">C) I has seen that movie.</li>
+                        <li class="option" data-quiz="3" data-question="5" data-answer="d">D) I seen that movie.</li>
+                    </ul>
+                </div>
+
+                <button class="submit-btn" onclick="checkQuiz(3, ['b','c','b','b','b'])">Antworten überprüfen</button>
+                <div class="result" id="result3"></div>
+            </div>
+
+            <!-- Quiz 4: Vocabulary -->
+            <div class="quiz-container" id="quiz4">
+                <h3 class="quiz-header">😊 Quiz 4: Feelings & Emotions</h3>
+                <p class="quiz-description">Teste deinen Wortschatz zu Gefühlen</p>
+
+                <div class="question">
+                    <p class="question-text">1. What does "anxious" mean?</p>
+                    <ul class="options">
+                        <li class="option" data-quiz="4" data-question="1" data-answer="a">A) Very happy</li>
+                        <li class="option" data-quiz="4" data-question="1" data-answer="b">B) Worried or nervous</li>
+                        <li class="option" data-quiz="4" data-question="1" data-answer="c">C) Angry</li>
+                        <li class="option" data-quiz="4" data-question="1" data-answer="d">D) Bored</li>
+                    </ul>
+                </div>
+
+                <div class="question">
+                    <p class="question-text">2. Someone who is "delighted" is...</p>
+                    <ul class="options">
+                        <li class="option" data-quiz="4" data-question="2" data-answer="a">A) Very pleased and happy</li>
+                        <li class="option" data-quiz="4" data-question="2" data-answer="b">B) Sad</li>
+                        <li class="option" data-quiz="4" data-question="2" data-answer="c">C) Confused</li>
+                        <li class="option" data-quiz="4" data-question="2" data-answer="d">D) Tired</li>
+                    </ul>
+                </div>
+
+                <div class="question">
+                    <p class="question-text">3. "Frustrated" means feeling...</p>
+                    <ul class="options">
+                        <li class="option" data-quiz="4" data-question="3" data-answer="a">A) Joyful</li>
+                        <li class="option" data-quiz="4" data-question="3" data-answer="b">B) Annoyed because you can't achieve something</li>
+                        <li class="option" data-quiz="4" data-question="3" data-answer="c">C) Excited</li>
+                        <li class="option" data-quiz="4" data-question="3" data-answer="d">D) Calm</li>
+                    </ul>
+                </div>
+
+                <div class="question">
+                    <p class="question-text">4. If you are "overwhelmed", you feel...</p>
+                    <ul class="options">
+                        <li class="option" data-quiz="4" data-question="4" data-answer="a">A) Confident</li>
+                        <li class="option" data-quiz="4" data-question="4" data-answer="b">B) Unable to cope with too many things</li>
+                        <li class="option" data-quiz="4" data-question="4" data-answer="c">C) Relaxed</li>
+                        <li class="option" data-quiz="4" data-question="4" data-answer="d">D) Proud</li>
+                    </ul>
+                </div>
+
+                <div class="question">
+                    <p class="question-text">5. "Relieved" describes feeling...</p>
+                    <ul class="options">
+                        <li class="option" data-quiz="4" data-question="5" data-answer="a">A) Worried</li>
+                        <li class="option" data-quiz="4" data-question="5" data-answer="b">B) Free from anxiety or stress</li>
+                        <li class="option" data-quiz="4" data-question="5" data-answer="c">C) Disappointed</li>
+                        <li class="option" data-quiz="4" data-question="5" data-answer="d">D) Lonely</li>
+                    </ul>
+                </div>
+
+                <button class="submit-btn" onclick="checkQuiz(4, ['b','a','b','b','b'])">Antworten überprüfen</button>
+                <div class="result" id="result4"></div>
+            </div>
+        </div>
+
         <footer>
             <p>🎓 Viel Erfolg bei der ZP10-Vorbereitung! 🎓</p>
             <p style="margin-top: 10px; font-size: 0.85em;">Alle PDFs sind in deinem Ordner gespeichert</p>
         </footer>
     </div>
+
+    <script>
+        // Handle option selection
+        document.querySelectorAll('.option').forEach(option => {
+            option.addEventListener('click', function() {
+                const quiz = this.dataset.quiz;
+                const question = this.dataset.question;
+
+                // Remove selected class from other options in the same question
+                document.querySelectorAll(`.option[data-quiz="${quiz}"][data-question="${question}"]`).forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+
+                // Add selected class to clicked option
+                this.classList.add('selected');
+            });
+        });
+
+        function checkQuiz(quizNum, correctAnswers) {
+            const questions = document.querySelectorAll(`#quiz${quizNum} .question`);
+            let score = 0;
+            let allAnswered = true;
+
+            questions.forEach((question, index) => {
+                const selectedOption = question.querySelector('.option.selected');
+
+                if (!selectedOption) {
+                    allAnswered = false;
+                    return;
+                }
+
+                const answer = selectedOption.dataset.answer;
+                const options = question.querySelectorAll('.option');
+
+                options.forEach(opt => {
+                    opt.style.pointerEvents = 'none';
+                    if (opt.dataset.answer === correctAnswers[index]) {
+                        opt.classList.add('correct');
+                    }
+                    if (opt.classList.contains('selected') && opt.dataset.answer !== correctAnswers[index]) {
+                        opt.classList.add('incorrect');
+                    }
+                });
+
+                if (answer === correctAnswers[index]) {
+                    score++;
+                }
+            });
+
+            if (!allAnswered) {
+                alert('Bitte beantworte alle Fragen!');
+                return;
+            }
+
+            // Display results
+            const resultDiv = document.getElementById(`result${quizNum}`);
+            resultDiv.classList.add('show');
+
+            const percentage = (score / correctAnswers.length * 100).toFixed(0);
+            let message = '';
+            let emoji = '';
+
+            if (percentage >= 80) {
+                message = 'Ausgezeichnet! Du bist bestens vorbereitet! 🌟';
+                emoji = '🎉';
+            } else if (percentage >= 60) {
+                message = 'Gut gemacht! Mit etwas mehr Übung wirst du perfekt sein! 👍';
+                emoji = '😊';
+            } else {
+                message = 'Weiter üben! Schau dir die Materialien nochmal an. 📚';
+                emoji = '💪';
+            }
+
+            resultDiv.innerHTML = `
+                <div class="score">${emoji} ${score}/${correctAnswers.length} Punkte (${percentage}%)</div>
+                <p>${message}</p>
+                <button class="reset-btn" onclick="resetQuiz(${quizNum})">Quiz wiederholen</button>
+            `;
+
+            // Disable submit button
+            document.querySelector(`#quiz${quizNum} .submit-btn`).disabled = true;
+        }
+
+        function resetQuiz(quizNum) {
+            // Reset all options
+            document.querySelectorAll(`#quiz${quizNum} .option`).forEach(opt => {
+                opt.classList.remove('selected', 'correct', 'incorrect');
+                opt.style.pointerEvents = 'auto';
+            });
+
+            // Hide result
+            document.getElementById(`result${quizNum}`).classList.remove('show');
+
+            // Enable submit button
+            document.querySelector(`#quiz${quizNum} .submit-btn`).disabled = false;
+        }
+    </script>
 </body>
 </html>
