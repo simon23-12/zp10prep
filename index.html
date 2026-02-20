@@ -12,238 +12,329 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
+            background: #111113;
             min-height: 100vh;
-            padding: 20px;
+            padding: 32px 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Decorative background orbs for glassmorphism depth */
+        body::before {
+            content: '';
+            position: fixed;
+            width: 700px;
+            height: 700px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(80, 80, 100, 0.25) 0%, transparent 70%);
+            top: -200px;
+            left: -200px;
+            pointer-events: none;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(60, 60, 80, 0.2) 0%, transparent 70%);
+            bottom: -150px;
+            right: -150px;
+            pointer-events: none;
+        }
+
+        .orb-mid {
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(90, 90, 120, 0.15) 0%, transparent 70%);
+            top: 50%;
+            left: 60%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
         }
 
         .container {
-            max-width: 900px;
+            max-width: 860px;
             margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(40px) saturate(160%);
+            -webkit-backdrop-filter: blur(40px) saturate(160%);
+            border-radius: 24px;
+            padding: 48px 44px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow:
+                0 32px 80px rgba(0, 0, 0, 0.5),
+                0 8px 24px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            position: relative;
+            z-index: 1;
         }
 
         h1 {
-            color: #667eea;
-            margin-bottom: 10px;
-            font-size: 2.5em;
+            color: #f5f5f7;
+            margin-bottom: 8px;
+            font-size: 2.4em;
+            font-weight: 700;
             text-align: center;
+            letter-spacing: -0.5px;
         }
 
         .subtitle {
             text-align: center;
-            color: #666;
-            margin-bottom: 40px;
-            font-size: 1.1em;
+            color: rgba(245, 245, 247, 0.55);
+            margin-bottom: 36px;
+            font-size: 1.05em;
+            font-weight: 400;
+            letter-spacing: 0.1px;
         }
 
         .pdf-count {
             text-align: center;
-            margin-bottom: 30px;
-            font-size: 1em;
-            color: #764ba2;
-            font-weight: bold;
+            margin-bottom: 36px;
+            font-size: 0.9em;
+            color: rgba(245, 245, 247, 0.4);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
         }
 
         .pdf-list {
             list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
 
         .pdf-item {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            margin-bottom: 15px;
-            padding: 20px;
-            border-radius: 12px;
-            transition: all 0.3s ease;
-            border-left: 5px solid #667eea;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
         }
 
         .pdf-item:hover {
-            transform: translateX(10px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
-            border-left-color: #764ba2;
+            background: rgba(255, 255, 255, 0.09);
+            border-color: rgba(255, 255, 255, 0.16);
+            transform: translateY(-1px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
         }
 
         .pdf-link {
             text-decoration: none;
-            color: #333;
+            color: #f5f5f7;
             display: flex;
             align-items: center;
             justify-content: space-between;
+            padding: 16px 20px;
         }
 
         .pdf-icon {
-            width: 40px;
-            height: 40px;
-            background: #667eea;
-            border-radius: 8px;
+            width: 38px;
+            height: 38px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-weight: bold;
-            margin-right: 15px;
+            font-size: 1.1em;
+            margin-right: 14px;
             flex-shrink: 0;
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .pdf-name {
             flex-grow: 1;
-            font-size: 1.1em;
+            font-size: 1em;
             font-weight: 500;
+            color: rgba(245, 245, 247, 0.9);
+            letter-spacing: -0.1px;
         }
 
         .pdf-arrow {
-            color: #667eea;
-            font-size: 1.5em;
-            transition: transform 0.3s ease;
+            color: rgba(245, 245, 247, 0.3);
+            font-size: 1.1em;
+            transition: all 0.25s ease;
+            font-weight: 300;
         }
 
         .pdf-item:hover .pdf-arrow {
-            transform: translateX(5px);
+            color: rgba(245, 245, 247, 0.7);
+            transform: translateX(3px);
         }
 
         .category {
             margin-top: 40px;
         }
 
+        .category:first-of-type {
+            margin-top: 0;
+        }
+
         .category-title {
-            color: #764ba2;
-            font-size: 1.5em;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid #667eea;
+            color: rgba(245, 245, 247, 0.9);
+            font-size: 1.15em;
+            font-weight: 600;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            letter-spacing: -0.2px;
         }
 
         footer {
             text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 2px solid #e0e0e0;
-            color: #666;
-            font-size: 0.9em;
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.07);
+            color: rgba(245, 245, 247, 0.35);
+            font-size: 0.85em;
+        }
+
+        footer p + p {
+            margin-top: 6px;
         }
 
         /* Quiz Styles */
         .quiz-section {
-            margin-top: 60px;
+            margin-top: 56px;
             padding-top: 40px;
-            border-top: 3px solid #667eea;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .quiz-intro {
             text-align: center;
-            margin-bottom: 30px;
-            color: #666;
-            font-size: 1.1em;
-        }
-
-        .quiz-container {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            padding: 30px;
-            border-radius: 15px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .quiz-header {
-            color: white;
-            font-size: 1.8em;
-            margin-bottom: 10px;
-            text-align: center;
-        }
-
-        .quiz-description {
-            color: rgba(255, 255, 255, 0.9);
-            text-align: center;
-            margin-bottom: 25px;
+            margin-bottom: 28px;
+            color: rgba(245, 245, 247, 0.5);
             font-size: 1em;
         }
 
-        .question {
-            background: white;
-            padding: 25px;
-            border-radius: 12px;
+        .quiz-container {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 28px;
+            border-radius: 18px;
             margin-bottom: 20px;
         }
 
-        .question-text {
-            font-size: 1.2em;
+        .quiz-header {
+            color: #f5f5f7;
+            font-size: 1.3em;
             font-weight: 600;
-            color: #333;
-            margin-bottom: 15px;
+            margin-bottom: 6px;
+            text-align: center;
+            letter-spacing: -0.2px;
+        }
+
+        .quiz-description {
+            color: rgba(245, 245, 247, 0.45);
+            text-align: center;
+            margin-bottom: 24px;
+            font-size: 0.95em;
+        }
+
+        .question {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 14px;
+        }
+
+        .question-text {
+            font-size: 1.05em;
+            font-weight: 600;
+            color: rgba(245, 245, 247, 0.9);
+            margin-bottom: 14px;
+            letter-spacing: -0.1px;
         }
 
         .options {
             list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
         }
 
         .option {
-            background: #f5f7fa;
-            padding: 15px;
-            margin-bottom: 10px;
-            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 13px 16px;
+            border-radius: 10px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            color: rgba(245, 245, 247, 0.8);
+            font-size: 0.95em;
         }
 
         .option:hover {
-            background: #e8ecf1;
-            transform: translateX(5px);
+            background: rgba(255, 255, 255, 0.09);
+            border-color: rgba(255, 255, 255, 0.15);
+            color: #f5f5f7;
         }
 
         .option.selected {
-            border-color: #667eea;
-            background: #e8ecf1;
+            border-color: rgba(0, 122, 255, 0.6);
+            background: rgba(0, 122, 255, 0.1);
+            color: #f5f5f7;
         }
 
         .option.correct {
-            border-color: #4caf50;
-            background: #c8e6c9;
+            border-color: rgba(52, 199, 89, 0.6);
+            background: rgba(52, 199, 89, 0.1);
+            color: rgba(245, 245, 247, 0.9);
         }
 
         .option.incorrect {
-            border-color: #f44336;
-            background: #ffcdd2;
+            border-color: rgba(255, 59, 48, 0.6);
+            background: rgba(255, 59, 48, 0.1);
+            color: rgba(245, 245, 247, 0.9);
         }
 
         .submit-btn {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: rgba(0, 122, 255, 0.85);
+            backdrop-filter: blur(10px);
             color: white;
-            padding: 15px 40px;
+            padding: 13px 36px;
             border: none;
-            border-radius: 8px;
-            font-size: 1.1em;
+            border-radius: 980px;
+            font-size: 0.95em;
             font-weight: 600;
             cursor: pointer;
             display: block;
-            margin: 20px auto;
-            transition: all 0.3s ease;
+            margin: 20px auto 0;
+            transition: all 0.2s ease;
+            letter-spacing: -0.1px;
+            font-family: inherit;
         }
 
         .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            background: rgba(0, 122, 255, 1);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(0, 122, 255, 0.35);
         }
 
         .submit-btn:disabled {
-            background: #ccc;
+            background: rgba(255, 255, 255, 0.12);
+            color: rgba(245, 245, 247, 0.3);
             cursor: not-allowed;
             transform: none;
+            box-shadow: none;
         }
 
         .result {
-            background: white;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             padding: 20px;
             border-radius: 12px;
-            margin-top: 20px;
+            margin-top: 16px;
             text-align: center;
-            font-size: 1.2em;
+            font-size: 1.05em;
             display: none;
+            color: rgba(245, 245, 247, 0.9);
         }
 
         .result.show {
@@ -251,54 +342,75 @@
         }
 
         .score {
-            font-size: 2em;
-            font-weight: bold;
-            color: #667eea;
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #f5f5f7;
             margin-bottom: 10px;
+            letter-spacing: -0.5px;
         }
 
         .feedback {
             margin-top: 10px;
             padding: 10px;
             border-radius: 8px;
-            font-size: 0.95em;
+            font-size: 0.9em;
         }
 
         .feedback.correct {
-            background: #c8e6c9;
-            color: #2e7d32;
+            background: rgba(52, 199, 89, 0.12);
+            border: 1px solid rgba(52, 199, 89, 0.25);
+            color: rgba(52, 199, 89, 0.9);
         }
 
         .feedback.incorrect {
-            background: #ffcdd2;
-            color: #c62828;
+            background: rgba(255, 59, 48, 0.12);
+            border: 1px solid rgba(255, 59, 48, 0.25);
+            color: rgba(255, 100, 90, 0.9);
         }
 
         .reset-btn {
-            background: #764ba2;
-            color: white;
-            padding: 10px 25px;
-            border: none;
-            border-radius: 8px;
-            font-size: 1em;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: rgba(245, 245, 247, 0.8);
+            padding: 10px 24px;
+            border-radius: 980px;
+            font-size: 0.9em;
             cursor: pointer;
-            margin-top: 15px;
-            transition: all 0.3s ease;
+            margin-top: 14px;
+            transition: all 0.2s ease;
+            font-family: inherit;
         }
 
         .reset-btn:hover {
-            background: #5d3a82;
+            background: rgba(255, 255, 255, 0.16);
+            color: #f5f5f7;
         }
     </style>
 </head>
 <body>
+    <div class="orb-mid"></div>
     <div class="container">
         <h1>📚 How to survive Zp10</h1>
         <p class="subtitle">Deine komplette PDF-Sammlung zur Prüfungsvorbereitung</p>
-        <p class="pdf-count">✨ 15 Dokumente verfügbar ✨</p>
+        <p class="pdf-count">16 Dokumente verfügbar</p>
 
         <div class="category">
-            <h2 class="category-title">📝 Schreibanleitungen</h2>
+            <h2 class="category-title">🔍 How to: Aufgabe 1: Summary / Comprehension</h2>
+            <ul class="pdf-list">
+                <li class="pdf-item">
+                    <a href="How to_Comprehension task-1.pdf" class="pdf-link" target="_blank">
+                        <div style="display: flex; align-items: center; flex-grow: 1;">
+                            <div class="pdf-icon">📋</div>
+                            <span class="pdf-name">How to: Comprehension Task</span>
+                        </div>
+                        <span class="pdf-arrow">→</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="category">
+            <h2 class="category-title">✍️ How to: Aufgabe 3: Creative Writing</h2>
             <ul class="pdf-list">
                 <li class="pdf-item">
                     <a href="How to write an e-mail.pdf" class="pdf-link" target="_blank">
@@ -699,8 +811,8 @@
         </div>
 
         <footer>
-            <p>🎓 Viel Erfolg bei der ZP10-Vorbereitung! 🎓</p>
-            <p style="margin-top: 10px; font-size: 0.85em;">Alle PDFs sind in deinem Ordner gespeichert</p>
+            <p>Viel Erfolg bei der ZP10-Vorbereitung!</p>
+            <p>Alle PDFs sind im Repository gespeichert</p>
         </footer>
     </div>
 
